@@ -18,14 +18,8 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-    - name: Set image name
-      run: echo "IMAGE_NAME=${{ secrets.DOCKER_HUB_USERNAME }}/docker-react-mysql:latest" >> $GITHUB_ENV
-
-    - name: Show image name
-      run: echo "Pushing image to Docker Hub as $IMAGE_NAME"
-
     - name: Build Docker image
-      run: docker build -t $IMAGE_NAME .
+      run: docker build -t sehbaj/docker-react-mysql:latest .
 
     - name: Push Docker image
-      run: docker push $IMAGE_NAME
+      run: docker push sehbaj/docker-react-mysql:latest
